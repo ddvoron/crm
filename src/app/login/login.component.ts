@@ -10,25 +10,28 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
   isLoggedIn = false;
+  email = '';
+  password = '';
 
   constructor(private auth: AuthenticationService,
               private  router: Router) {
   }
 
   ngOnInit() {
-  /*  setTimeout(() => {
-      this.auth.getToken('admin', 'admin').subscribe(data => {
-        if (data.token) {
-          localStorage.setItem('token', data.token);
-          this.auth.getUserByToken().subscribe(data => {
-            if (data) {
-              localStorage.setItem('user', JSON.stringify(data));
-              this.router.navigate(['/navigation']);
-            }
-          });
-        }
-      });
-    }, 10000);*/
+  }
+
+  login() {
+    this.auth.getToken(this.email, this.password).subscribe(data => {
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+        this.auth.getUserByToken().subscribe(data => {
+          if (data) {
+            localStorage.setItem('user', JSON.stringify(data));
+            this.router.navigate(['/navigation']);
+          }
+        });
+      }
+    });
   }
 
 }

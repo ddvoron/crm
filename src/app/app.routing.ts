@@ -9,7 +9,7 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent },
 
   // otherwise redirect to login
-  { path: '**', redirectTo: 'navigation' }
+  { path: '**', redirectTo: '' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

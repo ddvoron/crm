@@ -1,4 +1,133 @@
+@import "../../assets/buttons.scss";
+
 .full-width {
-  width: 200px;
+  width: 100%;
   float: left;
 }
+
+.main-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .form-wrapper {
+    z-index: 10;
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    min-height: 200px;
+    background-color: rgba(243, 243, 243, 1);
+    box-shadow: 0 0 10px 2px lightgrey;
+    animation-name: form-wrapper;
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+
+  .form-wrapper-logged_-in {
+    animation-name: logged-in;
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+
+  mat-icon {
+    color: #52a5a8;
+  }
+
+  /deep/ .mat-input-underline {
+    background-color: #52a5a8;
+  }
+
+  .hello {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .user {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .greetings {
+    opacity: 0;
+    text-align: center;
+    z-index: 9;
+    padding: 50px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    min-height: 100px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    color: #4ca5a8;
+  }
+
+  fa {
+    color: #4ca5a8;
+  }
+
+  .greetings-after-logged-in {
+    animation-name: greetings;
+    animation-duration: 3.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+
+}
+
+@keyframes form-wrapper {
+  0% {
+    left: 150%;
+    opacity: 0;
+  }
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes logged-in {
+  0% {
+    left: 50%;
+    opacity: 1;
+  }
+  100% {
+    left: -100%;
+    opacity: 0;
+  }
+}
+
+@keyframes greetings {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+

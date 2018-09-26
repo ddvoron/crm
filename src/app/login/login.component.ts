@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   email = '';
   password = '';
+  helloTime = 2400;
+  user = '';
 
   constructor(private auth: AuthenticationService,
               private  router: Router) {
@@ -27,7 +29,11 @@ export class LoginComponent implements OnInit {
         this.auth.getUserByToken().subscribe(data => {
           if (data) {
             localStorage.setItem('user', JSON.stringify(data));
-            this.router.navigate(['/navigation']);
+            this.user = data.name + ' ' + data.surname;
+            this.isLoggedIn = true;
+            setTimeout(() => {
+              this.router.navigate(['/navigation']);
+            }, this.helloTime);
           }
         });
       }

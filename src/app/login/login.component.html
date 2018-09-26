@@ -1,9 +1,31 @@
-<mat-form-field class="full-width">
-  <input matInput placeholder="Email" [(ngModel)]="email">
-</mat-form-field>
+<div class="main-container">
 
-<mat-form-field class="full-width">
-  <input type="password" matInput placeholder="Password" [(ngModel)]="password">
-</mat-form-field>
+  <div class="form-wrapper" [ngClass]="{'form-wrapper-logged_-in': isLoggedIn}">
 
-<button mat-button (click)="login();">Login</button>
+    <mat-form-field class="full-width">
+      <input type="email" matInput placeholder="Электронная почта" [(ngModel)]="email">
+      <mat-icon matSuffix>mail_outline</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input type="password" matInput placeholder="Пароль" [(ngModel)]="password">
+      <mat-icon matSuffix>lock_open</mat-icon>
+    </mat-form-field>
+
+    <button class="btn-green" mat-button (click)="login();">Войти</button>
+
+  </div>
+
+  <div class="greetings" [ngClass]="{'greetings-after-logged-in': isLoggedIn}">
+    <div class="hello">
+      Добро пожаловать
+    </div>
+    <div style="width: 100%; text-align: center; margin-top: 20px;">
+      <fa [size]="'3x'" [name]="'user-circle-o'"></fa>
+    </div>
+    <div class="user">
+      {{user}}
+    </div>
+  </div>
+
+</div>

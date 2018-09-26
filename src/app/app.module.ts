@@ -12,6 +12,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MaterialModule} from "./material.module";
 import {FormsModule} from "@angular/forms";
+import {AngularFontAwesomeModule} from "angular-font-awesome";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AngularFontAwesomeModule,
     FormsModule,
     MaterialModule,
     HttpClientModule,

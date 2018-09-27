@@ -1,0 +1,93 @@
+.menu-wrapper {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #52a5a8;
+  box-shadow: 0 0 10px 2px #404040;
+
+  .right-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+
+    .wrap-note-mess {
+      float: left;
+      height: 100%;
+      width: 40px;
+
+      div {
+        transition: all 0.3s ease-out;
+        cursor: pointer;
+        height: 50%;
+        width: 100%;
+
+        &:hover {
+          box-shadow: inset 0 0 20px 2px white;
+
+          svg {
+            fill: #404040;
+          }
+        }
+
+        svg {
+          transition: all 0.3s ease-out;
+          height: 30px;
+          width: 30px;
+          margin-top: 5px;
+          margin-left: 5px;
+          fill: white;
+        }
+      }
+    }
+  }
+
+  .center-menu {
+    float: left;
+    height: 100%;
+    width: auto;
+    background-color: inherit;
+
+    .mat-icon-wrapper {
+      transition: all 0.3s ease;
+      float: left;
+      height: 100%;
+      min-width: 50px;
+      margin-left: 4px;
+      margin-right: 4px;
+
+      &:hover {
+        border-bottom: 4px solid white;
+      }
+
+      .mat-icon-wrapper-inner {
+
+        float: left;
+        position: relative;
+        cursor: pointer;
+        height: 50px;
+        width: 50px;
+        margin-top: 15px;
+
+        &:hover {
+
+          svg {
+            transform: scale(1.1);
+          }
+        }
+
+        svg {
+          float: left;
+          transition: all 0.3s ease;
+          height: 50px;
+          width: 50px;
+          fill: white;
+        }
+      }
+    }
+  }
+
+}
+

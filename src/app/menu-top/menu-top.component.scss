@@ -58,12 +58,7 @@
       margin-left: 4px;
       margin-right: 4px;
 
-      &:hover {
-        border-bottom: 4px solid white;
-      }
-
       .mat-icon-wrapper-inner {
-
         float: left;
         position: relative;
         cursor: pointer;
@@ -71,7 +66,28 @@
         width: 50px;
         margin-top: 15px;
 
+        .showTooltip {
+          transition: all 0.3s ease;
+          opacity: 0;
+          position: absolute;
+          top: 60px;
+          font-family: 'Open Sans', sans-serif;
+          font-size: 14px;
+          font-weight: bold;
+          color: white;
+          padding: 4px;
+          border-radius: 4px;
+          white-space: nowrap;
+          background-color: #52a5a8;
+          height: 0;
+          box-shadow: 0 2px 4px #404040;
+        }
+
         &:hover {
+          .showTooltip {
+            opacity: 1;
+            height: 28px;
+          }
 
           svg {
             transform: scale(1.1);

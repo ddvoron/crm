@@ -14,13 +14,23 @@ import {MaterialModule} from './material.module';
 import {FormsModule} from '@angular/forms';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import { MenuTopComponent } from './menu-top/menu-top.component';
+import { MyCabinetComponent } from './my-cabinet/my-cabinet.component';
+import { MyTaskComponent } from './my-task/my-task.component';
+import { MeetingsComponent } from './meetings/meetings.component';
+import { RealEstateComponent } from './real-estate/real-estate.component';
+import { FlowComponent } from './flow/flow.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavigationComponent,
-    MenuTopComponent
+    MenuTopComponent,
+    MyCabinetComponent,
+    MyTaskComponent,
+    MeetingsComponent,
+    RealEstateComponent,
+    FlowComponent
   ],
   imports: [
     BrowserModule,

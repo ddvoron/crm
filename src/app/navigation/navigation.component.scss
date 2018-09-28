@@ -15,16 +15,59 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 480px;
 
     .item {
+      cursor: pointer;
+      transition: all 0.2s ease-in;
       margin: 10px;
       float: left;
       width: 140px;
       height: 140px;
       box-shadow: -11px 12px 10px 2px #bbbbbb;
       background-color: #52a5a8;
+      outline: none;
+
+      &:hover {
+        transform: scale(1.04);
+        background-color: white;
+
+        .icon {
+          svg {
+            fill: #52a5a8;
+          }
+        }
+
+        .name {
+          color: #52a5a8;
+        }
+      }
+
+      .icon {
+        height: 70%;
+        width: 100%;
+        text-align: center;
+
+        svg {
+          transition: all 0.2s ease-in;
+          margin-top: 26px;
+          fill: white;
+          height: 50%;
+          width: 50%;
+        }
+      }
+
+      .name {
+        transition: all 0.2s ease-in;
+        height: 30%;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+        color: white;
+      }
     }
   }
 }

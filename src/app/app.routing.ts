@@ -7,6 +7,7 @@ import {MyTaskComponent} from "./my-task/my-task.component";
 import {MeetingsComponent} from "./meetings/meetings.component";
 import {RealEstateComponent} from "./real-estate/real-estate.component";
 import {FlowComponent} from "./flow/flow.component";
+import {UsersComponent} from "./users/users.component";
 
 
 const flowRoutes: Routes = [
@@ -14,6 +15,7 @@ const flowRoutes: Routes = [
   { path: 'my-tasks', component: MyTaskComponent, canActivate: [AuthGuard] },
   { path: 'meetings', component: MeetingsComponent, canActivate: [AuthGuard] },
   { path: 'real-estate', component: RealEstateComponent, canActivate: [AuthGuard] },
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard] }
 ];
 
 const appRoutes: Routes = [

@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
   isLoggedIn = false;
-  email = '';
+  username = '';
   password = '';
   helloTime = 2400;
   user = '';
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.auth.getToken(this.email, this.password).subscribe(data => {
+    this.auth.getToken(this.username, this.password).subscribe(data => {
       if (data.token) {
         localStorage.setItem('token', data.token);
         this.auth.getUserByToken().subscribe(data => {

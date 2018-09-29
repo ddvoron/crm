@@ -19,6 +19,12 @@ import { MyTaskComponent } from './my-task/my-task.component';
 import { MeetingsComponent } from './meetings/meetings.component';
 import { RealEstateComponent } from './real-estate/real-estate.component';
 import { FlowComponent } from './flow/flow.component';
+import { UsersComponent } from './users/users.component';
+import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from "ngx-perfect-scrollbar";
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   declarations: [
@@ -30,7 +36,8 @@ import { FlowComponent } from './flow/flow.component';
     MyTaskComponent,
     MeetingsComponent,
     RealEstateComponent,
-    FlowComponent
+    FlowComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +46,13 @@ import { FlowComponent } from './flow/flow.component';
     FormsModule,
     MaterialModule,
     HttpClientModule,
+    PerfectScrollbarModule,
     routing
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
     Globals,
     AuthenticationService
   ],

@@ -29,9 +29,17 @@
 
   .table-content-wrapper {
     float: left;
-    height: calc(100% - 57px);
+    height: calc(100% - 110px);
     width: 100%;
     overflow: hidden;
+    position: relative;
+  }
+
+  .header-wrapper {
+    float: left;
+    width: 100%;
+    height: 51px;
+    position: relative;
   }
 
   .paginator-wrapper {
@@ -63,11 +71,15 @@
       font-weight: bold;
 
       tr {
+        top: 0;
+        left: 0;
+        position: absolute;
         border-bottom: 1px solid lightgray;
 
         th {
           padding: 16px;
-          color: #8f8f8f;
+          color: #404040;
+          text-decoration: underline;
         }
       }
     }
@@ -76,6 +88,14 @@
 
       tr {
         border-bottom: 1px solid lightgray;
+
+        &:nth-child(even) {
+          background-color: #f9f9f9;
+          td {
+            background-color: #f9f9f9;
+          }
+
+        }
 
         td {
           padding: 16px;

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer, Renderer2, ViewChild} from '@angular/core';
 import {User} from "../_model/user.model";
 
 @Component({
@@ -10,9 +10,8 @@ export class UsersComponent implements OnInit {
 
   private users: User[] = [];
 
-  constructor() {
-
-
+  constructor(private elRef: ElementRef,
+              private renderer: Renderer2) {
   }
 
   ngOnInit() {
@@ -29,6 +28,15 @@ export class UsersComponent implements OnInit {
       user.lastPasswordResetDate = new Date;
       user.created = new Date;
       this.users.push(user);
+    }
+    setTimeout(()=> {
+      this.onResize();
+    }, 10);
+  }
+
+  onResize(e?: any) {
+    for(let i = 0; i < this.elRef.nativeElement.querySelector('#table-c').getElementsByTagName('tr')[0].getElementsByTagName('td').length; i++) {
+      this.renderer.setStyle(this.elRef.nativeElement.querySelector('#table-h').getElementsByTagName('th')[i], 'width', this.elRef.nativeElement.querySelector('#table-c').getElementsByTagName('tr')[0].getElementsByTagName('td')[i].offsetWidth + 'px');
     }
   }
 

@@ -12,49 +12,44 @@
         </mat-paginator>
       </div>
     </div>
+    <div class="header-wrapper">
+      <table id="table-h">
+        <thead>
+        <tr>
+          <th>
+            ФИО
+          </th>
+          <th>
+            ПОЧТА
+          </th>
+          <th>
+            АКТИВЕН
+          </th>
+          <th>
+            ТЕЛЕФОН
+          </th>
+        </tr>
+        </thead>
+      </table>
+    </div>
     <div class="table-content-wrapper">
+
       <perfect-scrollbar>
-        <table class="fixed_headers">
-          <thead>
-          <tr>
-            <th>
-              ИМЯ
-            </th>
-            <th>
-              ОТЧЕСТВО
-            </th>
-            <th>
-              ФАМИЛИЯ
-            </th>
-            <th>
-              ПОЧТА
-            </th>
-            <th>
-              АКТИВЕН
-            </th>
-            <th>
-              ТЕЛЕФОН
-            </th>
-          </tr>
-          </thead>
+        <table (window:resize)="onResize($event)" id="table-c">
           <tbody>
           <tr *ngFor="let user of users, let i = index">
-            <td class="col-sm-2">
-              {{user.name}}
-            </td>
-            <td class="col-sm-2">
+            <td class="col-sm-4">
+              {{user.surname + ' ' + user.name}}
+              <br>
               {{user.patronymic}}
             </td>
-            <td class="col-sm-2">
-              {{user.surname}}
-            </td>
-            <td class="col-sm-2">
+            <td class="col-sm-3">
               {{user.email}}
             </td>
             <td class="col-sm-2">
               {{user.enabled}}
             </td>
-            <td class="col-sm-2">
+            <td class="col-sm-3">
               {{user.phone}}
             </td>
           </tr>

@@ -53,6 +53,28 @@
       width: 50%;
       background-color: white;
       height: 100%;
+
+      .icon {
+        float: left;
+        width: 40px;
+        height: 100px;
+        cursor: pointer;
+
+        &:hover {
+          svg {
+            transform: scale(1.1);
+          }
+        }
+
+        svg {
+          transition: all 0.3s ease;
+          fill: #52a5a8;
+          width: 34px;
+          height: 34px;
+          margin-top: 12px;
+          margin-left: 14px;
+        }
+      }
     }
   }
 
@@ -94,7 +116,7 @@
 
           div {
             position: absolute;
-            top:0;
+            top: 0;
             right: 0;
             height: 100%;
             width: 40px;
@@ -128,7 +150,16 @@
           }
         }
 
+        &:hover {
+          background-color: #ececec;
+          td {
+            background-color: #ececec;
+            border-bottom: 1px solid #52a5a8;
+          }
+        }
+
         td {
+          transition: all 0.1s ease;
           padding: 16px;
           color: #404040;
           font-weight: 400;

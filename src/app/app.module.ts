@@ -22,6 +22,7 @@ import { FlowComponent } from './flow/flow.component';
 import { UsersComponent } from './users/users.component';
 import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from "ngx-perfect-scrollbar";
 import {UserService} from "./_service/user.service";
+import { UserComponent } from './user/user.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -38,7 +39,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MeetingsComponent,
     RealEstateComponent,
     FlowComponent,
-    UsersComponent
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

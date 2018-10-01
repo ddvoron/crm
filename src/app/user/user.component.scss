@@ -1,0 +1,52 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  float: left;
+  box-shadow: 2px 0 8px 4px #757575;
+  animation-name: load;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+
+  .header {
+    float: left;
+    width: 100%;
+    height: 58px;
+    background-color: #52a5a8;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 20px;
+    padding: 12px;
+
+    mat-icon {
+      transition: all 0.3s ease;
+      position: absolute;
+      width: 40px;
+      font-size: 30px;
+      top: 12px;
+      right: 0;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.08);
+      }
+    }
+  }
+
+  .content {
+    float: left;
+    width: 100%;
+    height: calc(100% - 58px);
+    overflow: hidden;
+  }
+}
+
+@keyframes load {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -15,6 +15,9 @@ export class UsersComponent implements OnInit {
   column = '';
   dir = '';
   searchTerm = '';
+  userEdit = false;
+  showForm = false;
+  userId = '';
 
   private users: User[] = [];
 
@@ -55,17 +58,31 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
-    console.log(this.page);
     this.userService.getUsersByPage(this.page, this.size, this.column, this.dir, this.searchTerm).subscribe(data => {
         this.total = data.totalElements;
         this.users = data.content;
-        setTimeout(() => {
-          this.onResize();
-        }, 5);
+        console.log(this.users);
       },
       error => {
 
       });
+  }
+
+  openUserForm(userId?: string) {
+    if (userId) {
+      this.userId = userId;
+    }
+    this.userEdit = true;
+    setTimeout(() => {
+      this.showForm = true;
+    }, 1000)
+
+  }
+
+  closeForm(e: any) {
+    this.showForm = false;
+    this.userEdit = false;
+    this.userId = '';
   }
 
   onResize(e?: any) {

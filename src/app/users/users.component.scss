@@ -26,6 +26,60 @@
   float: left;
   height: 100%;
   width: 100%;
+  position: relative;
+
+  .cover {
+    animation-name: cover;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    background-color: black;
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+  }
+
+  @keyframes cover {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+
+  .user-edit {
+    animation-name: user-edit;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 700px;
+    height: 100%;
+    background-color: white;
+  }
+
+  @keyframes user-edit {
+    0% {
+      width: 0;
+      height: 100%;
+    }
+    50% {
+      width: 0;
+      height: 100%;
+    }
+    100% {
+      width: 700px;
+      height: 100%;
+    }
+  }
 
   .table-content-wrapper {
     float: left;
@@ -78,7 +132,140 @@
     }
   }
 
-  table {
+  .table-header {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    width: 100%;
+
+    th, td {
+      width: (100% / 6);
+    }
+
+    thead {
+      text-transform: uppercase;
+      font-weight: bold;
+
+      tr {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-bottom: 1px solid lightgray;
+
+        th {
+          transition: all 0.1s ease;
+          padding: 16px;
+          color: #404040;
+          text-decoration: underline;
+          position: relative;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #dae2e2;
+            div {
+              .fa {
+              }
+            }
+          }
+
+          div {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 40px;
+
+            text-align: center;
+
+            div {
+              height: 50%;
+              width: 100%;
+              position: relative;
+
+              .fa-caret-up {
+                transition: all 0.1s ease;
+                font-size: 18px;
+                color: #a6a6a6;
+                margin-top: 8px;
+              }
+
+              .fa-caret-down {
+                transition: all 0.1s ease;
+                font-size: 18px;
+                color: #a6a6a6;
+                margin-bottom: -3px;
+              }
+
+              .active-caret {
+                color: #428184 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+      text-transform: uppercase;
+      font-weight: bold;
+
+      tr {
+        border-bottom: 1px solid lightgray;
+
+        td {
+          transition: all 0.1s ease;
+          padding: 16px;
+          color: #404040;
+          text-decoration: underline;
+          position: relative;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #dae2e2;
+            div {
+              .fa {
+              }
+            }
+          }
+
+          div {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 40px;
+
+            text-align: center;
+
+            div {
+              height: 50%;
+              width: 100%;
+              position: relative;
+
+              .fa-caret-up {
+                transition: all 0.1s ease;
+                font-size: 18px;
+                color: #a6a6a6;
+                margin-top: 8px;
+              }
+
+              .fa-caret-down {
+                transition: all 0.1s ease;
+                font-size: 18px;
+                color: #a6a6a6;
+                margin-bottom: -3px;
+              }
+
+              .active-caret {
+                color: #428184 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .table-body {
     background-color: white;
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
@@ -99,6 +286,7 @@
         border-bottom: 1px solid lightgray;
 
         th {
+          transition: all 0.1s ease;
           padding: 16px;
           color: #404040;
           text-decoration: underline;
@@ -106,10 +294,9 @@
 
           &:hover {
             cursor: pointer;
-
+            background-color: #dae2e2;
             div {
               .fa {
-                transform: scale(1.2);
               }
             }
           }
@@ -120,19 +307,31 @@
             right: 0;
             height: 100%;
             width: 40px;
-            box-shadow: -2px 0 5px 1px #e2eaea;
-            text-align: center;
-            padding-top: 15px;
 
-            .fa-arrows-v {
-              transition: all 0.1s ease;
-              font-size: 20px;
-              color: #a6a6a6;
-            }
-            .fa-long-arrow-up, .fa-long-arrow-down {
-              transition: all 0.1s ease;
-              font-size: 20px;
-              color: #404040;
+            text-align: center;
+
+            div {
+              height: 50%;
+              width: 100%;
+              position: relative;
+
+              .fa-caret-up {
+                transition: all 0.1s ease;
+                font-size: 18px;
+                color: #a6a6a6;
+                margin-top: 8px;
+              }
+
+              .fa-caret-down {
+                transition: all 0.1s ease;
+                font-size: 18px;
+                color: #a6a6a6;
+                margin-bottom: -3px;
+              }
+
+              .active-caret {
+                color: #428184 !important;
+              }
             }
           }
         }
@@ -152,6 +351,7 @@
 
         &:hover {
           background-color: #ececec;
+          cursor: pointer;
           td {
             background-color: #ececec;
           }

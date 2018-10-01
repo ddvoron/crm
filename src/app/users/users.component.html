@@ -1,9 +1,17 @@
 <div class="wrapper">
 
   <div class="table-wrapper">
+    <div *ngIf="userEdit" class="cover">
+
+    </div>
+    <div  *ngIf="userEdit" class="user-edit">
+      <ng-container *ngIf="showForm">
+        <app-user [userId]="userId" (close)="closeForm($event);"></app-user>
+      </ng-container>
+    </div>
     <div class="paginator-wrapper">
       <div class="half">
-        <div class="icon">
+        <div class="icon" (click)="openUserForm();">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="612px" height="612px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
 <g>
@@ -56,56 +64,68 @@
         <mat-paginator [length]="[(total)]"
                        [pageSize]="10"
                        [pageSizeOptions]="[10, 20, 40, 80, 100]"
-                        (page)="paginator($event);">
+                       (page)="paginator($event);">
         </mat-paginator>
       </div>
     </div>
     <div class="header-wrapper">
-      <table id="table-h">
-        <thead>
+      <table class="table-header" id="table-h">
+        <tbody>
         <tr>
-          <th (click)="sort('surname')">
+          <td (click)="sort('surname')" class="col-sm-4">
             ФИО
             <div>
-              <i *ngIf="column !== 'surname'" class="fa fa-arrows-v"></i>
-              <i *ngIf="column === 'surname' && dir === 'asc'" class="fa fa-long-arrow-up"></i>
-              <i *ngIf="column === 'surname' && dir === 'desc'" class="fa fa-long-arrow-down"></i>
+              <div>
+                <i class="fa fa-caret-up" [ngClass]="{'active-caret': column === 'surname' && dir === 'asc'}"></i>
+              </div>
+              <div>
+                <i class="fa fa-caret-down" [ngClass]="{'active-caret': column === 'surname' && dir === 'desc'}"></i>
+              </div>
             </div>
-          </th>
-          <th (click)="sort('email')">
+          </td>
+          <td (click)="sort('email')" class="col-sm-3">
             ПОЧТА
             <div>
-              <i *ngIf="column !== 'email'" class="fa fa-arrows-v"></i>
-              <i *ngIf="column === 'email' && dir === 'asc'" class="fa fa-long-arrow-up"></i>
-              <i *ngIf="column === 'email' && dir === 'desc'" class="fa fa-long-arrow-down"></i>
+              <div>
+                <i class="fa fa-caret-up" [ngClass]="{'active-caret': column === 'email' && dir === 'asc'}"></i>
+              </div>
+              <div>
+                <i class="fa fa-caret-down" [ngClass]="{'active-caret': column === 'email' && dir === 'desc'}"></i>
+              </div>
             </div>
-          </th>
-          <th (click)="sort('enabled')">
+          </td>
+          <td (click)="sort('enabled')" class="col-sm-2">
             АКТИВЕН
             <div>
-              <i *ngIf="column !== 'enabled'" class="fa fa-arrows-v"></i>
-              <i *ngIf="column === 'enabled' && dir === 'asc'" class="fa fa-long-arrow-up"></i>
-              <i *ngIf="column === 'enabled' && dir === 'desc'" class="fa fa-long-arrow-down"></i>
+              <div>
+                <i class="fa fa-caret-up" [ngClass]="{'active-caret': column === 'enabled' && dir === 'asc'}"></i>
+              </div>
+              <div>
+                <i class="fa fa-caret-down" [ngClass]="{'active-caret': column === 'enabled' && dir === 'desc'}"></i>
+              </div>
             </div>
-          </th>
-          <th (click)="sort('phone')">
+          </td>
+          <td (click)="sort('phone')" class="col-sm-3">
             ТЕЛЕФОН
             <div>
-              <i *ngIf="column !== 'phone'" class="fa fa-arrows-v"></i>
-              <i *ngIf="column === 'phone' && dir === 'asc'" class="fa fa-long-arrow-up"></i>
-              <i *ngIf="column === 'phone' && dir === 'desc'" class="fa fa-long-arrow-down"></i>
+              <div>
+                <i class="fa fa-caret-up" [ngClass]="{'active-caret': column === 'phone' && dir === 'asc'}"></i>
+              </div>
+              <div>
+                <i class="fa fa-caret-down" [ngClass]="{'active-caret': column === 'phone' && dir === 'desc'}"></i>
+              </div>
             </div>
-          </th>
+          </td>
         </tr>
-        </thead>
+        </tbody>
       </table>
     </div>
     <div class="table-content-wrapper">
 
       <perfect-scrollbar>
-        <table (window:resize)="onResize($event)" id="table-c">
+        <table class="table-body" id="table-c">
           <tbody>
-          <tr *ngFor="let user of users, let i = index">
+          <tr *ngFor="let user of users, let i = index" (dblclick)="openUserForm(user.id);">
             <td class="col-sm-4">
               {{user.surname + ' ' + user.name}}
               <br>

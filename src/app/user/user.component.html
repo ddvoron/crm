@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div class="header">
+    <ng-container *ngIf="userId.length > 0">Редактирование пользователя</ng-container>
+    <ng-container *ngIf="userId.length === 0">Новый пользователь</ng-container>
+    <mat-icon (click)="closeForm();">close</mat-icon>
+  </div>
+  <div class="content">
+
+  </div>
+</div>

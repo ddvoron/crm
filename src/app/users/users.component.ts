@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit, Renderer, Renderer2, ViewChild} from '@angular/core';
 import {User} from "../_model/user.model";
+import {UserService} from "../_service/user.service";
 
 @Component({
   selector: 'app-users',
@@ -8,35 +9,69 @@ import {User} from "../_model/user.model";
 })
 export class UsersComponent implements OnInit {
 
+  total = 0;
+  page = 0;
+  size = 10;
+  column = '';
+  dir = '';
+  searchTerm = '';
+
   private users: User[] = [];
 
   constructor(private elRef: ElementRef,
-              private renderer: Renderer2) {
+              private renderer: Renderer2,
+              private userService: UserService) {
   }
 
   ngOnInit() {
-    for (let i = 0; i < 19; i++) {
-      let user = new User();
-      user.name = 'name ' + i;
-      user.patronymic = 'patronymic';
-      user.surname = 'surname';
-      user.patronymic = 'patronymic';
-      user.email = 'email';
-      user.phone = '+375 29 888-88-88';
-      user.enabled = true;
-      user.birthDate = new Date;
-      user.lastPasswordResetDate = new Date;
-      user.created = new Date;
-      this.users.push(user);
+    this.getUsers();
+  }
+
+  paginator(e: any) {
+    this.size = e.pageSize;
+    this.page = e.pageIndex;
+    this.getUsers();
+  }
+
+  sort(column: string) {
+    if (this.column === column) {
+      switch (this.dir) {
+        case '':
+          this.dir = 'asc';
+          break;
+        case 'asc':
+          this.dir = 'desc';
+          break;
+        default:
+          this.dir = '';
+          this.column = '';
+      }
+    } else {
+      this.dir = 'asc';
+      this.column = column;
     }
-    setTimeout(()=> {
-      this.onResize();
-    }, 10);
+
+    this.getUsers();
+  }
+
+  getUsers() {
+    console.log(this.page);
+    this.userService.getUsersByPage(this.page, this.size, this.column, this.dir, this.searchTerm).subscribe(data => {
+        this.total = data.totalElements;
+        this.users = data.content;
+        setTimeout(() => {
+          this.onResize();
+        }, 5);
+      },
+      error => {
+
+      });
   }
 
   onResize(e?: any) {
-    for(let i = 0; i < this.elRef.nativeElement.querySelector('#table-c').getElementsByTagName('tr')[0].getElementsByTagName('td').length; i++) {
-      this.renderer.setStyle(this.elRef.nativeElement.querySelector('#table-h').getElementsByTagName('th')[i], 'width', this.elRef.nativeElement.querySelector('#table-c').getElementsByTagName('tr')[0].getElementsByTagName('td')[i].offsetWidth + 'px');
+    for (let i = 0; i < this.elRef.nativeElement.querySelector('#table-c').getElementsByTagName('tr')[0].getElementsByTagName('td').length; i++) {
+      this.renderer.setStyle(this.elRef.nativeElement.querySelector('#table-h').getElementsByTagName('th')[i],
+        'width', this.elRef.nativeElement.querySelector('#table-c').getElementsByTagName('tr')[0].getElementsByTagName('td')[i].offsetWidth + 'px');
     }
   }
 

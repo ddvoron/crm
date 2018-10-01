@@ -6,9 +6,10 @@
         actions
       </div>
       <div class="half">
-        <mat-paginator [length]="100"
+        <mat-paginator [length]="[(total)]"
                        [pageSize]="10"
-                       [pageSizeOptions]="[10, 20, 40, 80, 100]">
+                       [pageSizeOptions]="[10, 20, 40, 80, 100]"
+                        (page)="paginator($event);">
         </mat-paginator>
       </div>
     </div>
@@ -16,17 +17,37 @@
       <table id="table-h">
         <thead>
         <tr>
-          <th>
+          <th (click)="sort('surname')">
             ФИО
+            <div>
+              <i *ngIf="column !== 'surname'" class="fa fa-arrows-v"></i>
+              <i *ngIf="column === 'surname' && dir === 'asc'" class="fa fa-long-arrow-up"></i>
+              <i *ngIf="column === 'surname' && dir === 'desc'" class="fa fa-long-arrow-down"></i>
+            </div>
           </th>
-          <th>
+          <th (click)="sort('email')">
             ПОЧТА
+            <div>
+              <i *ngIf="column !== 'email'" class="fa fa-arrows-v"></i>
+              <i *ngIf="column === 'email' && dir === 'asc'" class="fa fa-long-arrow-up"></i>
+              <i *ngIf="column === 'email' && dir === 'desc'" class="fa fa-long-arrow-down"></i>
+            </div>
           </th>
-          <th>
+          <th (click)="sort('enabled')">
             АКТИВЕН
+            <div>
+              <i *ngIf="column !== 'enabled'" class="fa fa-arrows-v"></i>
+              <i *ngIf="column === 'enabled' && dir === 'asc'" class="fa fa-long-arrow-up"></i>
+              <i *ngIf="column === 'enabled' && dir === 'desc'" class="fa fa-long-arrow-down"></i>
+            </div>
           </th>
-          <th>
+          <th (click)="sort('phone')">
             ТЕЛЕФОН
+            <div>
+              <i *ngIf="column !== 'phone'" class="fa fa-arrows-v"></i>
+              <i *ngIf="column === 'phone' && dir === 'asc'" class="fa fa-long-arrow-up"></i>
+              <i *ngIf="column === 'phone' && dir === 'desc'" class="fa fa-long-arrow-down"></i>
+            </div>
           </th>
         </tr>
         </thead>

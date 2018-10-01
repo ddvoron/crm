@@ -80,12 +80,44 @@
           padding: 16px;
           color: #404040;
           text-decoration: underline;
+          position: relative;
+
+          &:hover {
+            cursor: pointer;
+
+            div {
+              .fa {
+                transform: scale(1.2);
+              }
+            }
+          }
+
+          div {
+            position: absolute;
+            top:0;
+            right: 0;
+            height: 100%;
+            width: 40px;
+            box-shadow: -2px 0 5px 1px #e2eaea;
+            text-align: center;
+            padding-top: 15px;
+
+            .fa-arrows-v {
+              transition: all 0.1s ease;
+              font-size: 20px;
+              color: #a6a6a6;
+            }
+            .fa-long-arrow-up, .fa-long-arrow-down {
+              transition: all 0.1s ease;
+              font-size: 20px;
+              color: #404040;
+            }
+          }
         }
       }
     }
 
     tbody {
-
       tr {
         border-bottom: 1px solid lightgray;
 
@@ -94,7 +126,6 @@
           td {
             background-color: #f9f9f9;
           }
-
         }
 
         td {

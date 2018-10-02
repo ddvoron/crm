@@ -23,6 +23,9 @@ import { UsersComponent } from './users/users.component';
 import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from "ngx-perfect-scrollbar";
 import {UserService} from "./_service/user.service";
 import { UserComponent } from './user/user.component';
+import {NgxMaskModule} from "ngx-mask";
+import {DepartmentService} from "./_service/department.service";
+import {AuthorityService} from "./_service/authority.service";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -50,6 +53,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MaterialModule,
     HttpClientModule,
     PerfectScrollbarModule,
+    NgxMaskModule.forRoot(),
     routing
   ],
   providers: [
@@ -58,7 +62,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     },
     Globals,
     AuthenticationService,
-    UserService
+    UserService,
+    DepartmentService,
+    AuthorityService
   ],
   bootstrap: [AppComponent]
 })

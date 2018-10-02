@@ -61,17 +61,15 @@ export class UsersComponent implements OnInit {
     this.userService.getUsersByPage(this.page, this.size, this.column, this.dir, this.searchTerm).subscribe(data => {
         this.total = data.totalElements;
         this.users = data.content;
-        console.log(this.users);
       },
       error => {
 
       });
   }
 
-  openUserForm(userId?: string) {
-    if (userId) {
-      this.userId = userId;
-    }
+  openUserForm(userId: string) {
+    console.log(userId);
+    this.userId = userId;
     this.userEdit = true;
     setTimeout(() => {
       this.showForm = true;

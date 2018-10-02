@@ -8,27 +8,27 @@
     <perfect-scrollbar>
       <form>
         <mat-form-field>
-          <input required matInput placeholder="Имя">
+          <input required matInput placeholder="Имя" [(ngModel)] = "user.name" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
 
         <mat-form-field>
-          <input required matInput placeholder="Фамилия">
+          <input required matInput placeholder="Фамилия" [(ngModel)] = "user.surname" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
 
         <mat-form-field>
-          <input required matInput placeholder="Отчество">
+          <input required matInput placeholder="Отчество" [(ngModel)] = "user.patronymic" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
 
         <mat-form-field>
-          <input required matInput placeholder="Электронная почта">
+          <input required matInput placeholder="Электронная почта" [(ngModel)] = "user.email" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
 
         <mat-form-field>
-          <input required matInput placeholder="Телефон">
+          <input required matInput placeholder="Телефон" [(ngModel)] = "user.phone" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
 
         <mat-form-field>
-          <input required matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <input required matInput [matDatepicker]="picker" placeholder="Дата рождения" [(ngModel)] = "user.birthDate" [ngModelOptions]="{standalone: true}">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>

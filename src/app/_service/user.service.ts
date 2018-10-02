@@ -26,4 +26,8 @@ export class UserService {
     }
   }
 
+  getUserById(id: string) {
+    return this.http.get<any>(`${this.global.apiUrl}/users` + '/' + id);
+  }
+
 }

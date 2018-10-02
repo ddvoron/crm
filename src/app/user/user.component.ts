@@ -20,13 +20,14 @@ export class UserComponent implements OnInit {
   selectedDepartments: Department[] = [];
   authorities: Authority[] = [];
   selectedAuthorities: Authority[] = [];
+  user: User = new User();
 
   edit: boolean = false;
 
   constructor(private authorityService: AuthorityService,
               private departmentService: DepartmentService,
               private userService: UserService) {
-
+    this.resetUser();
   }
 
   ngOnInit() {
@@ -35,24 +36,46 @@ export class UserComponent implements OnInit {
     if (this.userId.length > 0) {
       this.edit = true;
     } else {
-      /**/
+      this.getUser();
     }
   }
 
   getDepartments() {
     this.departmentService.getDepartments().subscribe(data => {
       this.departments = data;
-    })
+    });
   }
 
   getAuthorities() {
     this.authorityService.getAuthorities().subscribe(data => {
       this.authorities = data;
-    })
+    });
+  }
+
+  getUser() {
+    this.userService.getUserById(this.userId).subscribe(data => {
+      this.user = data;
+    });
   }
 
   closeForm() {
     this.close.emit(true);
+  }
+
+  resetUser() {
+    this.user.id = '';
+    this.user.name = '';
+    this.user.surname = '';
+    this.user.patronymic = '';
+    this.user.email = '';
+    this.user.phone = '';
+    this.user.enabled = true;
+    this.user.birthDate = null;
+    this.user.created = null;
+    this.user.updated = null;
+    this.user.lastPasswordResetDate = null;
+    this.user.departments = [];
+    this.user.authorities = [];
   }
 
 }

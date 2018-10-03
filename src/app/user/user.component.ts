@@ -5,6 +5,8 @@ import {Authority} from "../_model/authority.model";
 import {AuthorityService} from "../_service/authority.service";
 import {DepartmentService} from "../_service/department.service";
 import {UserService} from "../_service/user.service";
+import {DatePipe} from "@angular/common";
+import {DateFormatter} from "@angular/common/src/pipes/deprecated/intl";
 
 @Component({
   selector: 'app-user',
@@ -26,7 +28,8 @@ export class UserComponent implements OnInit {
 
   constructor(private authorityService: AuthorityService,
               private departmentService: DepartmentService,
-              private userService: UserService) {
+              private userService: UserService,
+              private datePipe: DatePipe) {
     this.resetUser();
   }
 
@@ -54,12 +57,17 @@ export class UserComponent implements OnInit {
   getUser() {
     this.userService.getUserById(this.userId).subscribe(data => {
       this.user = data;
-      console.log(this.user);
     });
   }
 
   closeForm() {
     this.close.emit(true);
+  }
+
+  qwe() {
+/*    let x = this.datePipe.transform(this.user.birthDate, 'dd-MM-yyyy hh:mm:ss');
+    console.log(x);*/
+    console.log(this.user.birthDate);
   }
 
   resetUser() {

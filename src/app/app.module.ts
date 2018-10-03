@@ -26,6 +26,7 @@ import { UserComponent } from './user/user.component';
 import {NgxMaskModule} from "ngx-mask";
 import {DepartmentService} from "./_service/department.service";
 import {AuthorityService} from "./_service/authority.service";
+import {DatePipe} from "@angular/common";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -64,7 +65,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AuthenticationService,
     UserService,
     DepartmentService,
-    AuthorityService
+    AuthorityService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

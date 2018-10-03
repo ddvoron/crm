@@ -27,7 +27,6 @@ export class UserComponent implements OnInit {
   constructor(private authorityService: AuthorityService,
               private departmentService: DepartmentService,
               private userService: UserService) {
-    console.log(this.userId);
     this.resetUser();
   }
 
@@ -36,7 +35,6 @@ export class UserComponent implements OnInit {
     this.getAuthorities();
     if (this.userId.length > 0) {
       this.edit = true;
-    } else {
       this.getUser();
     }
   }
@@ -56,8 +54,7 @@ export class UserComponent implements OnInit {
   getUser() {
     this.userService.getUserById(this.userId).subscribe(data => {
       this.user = data;
-      console.log(this.userId);
-      console.log(data);
+      console.log(this.user);
     });
   }
 

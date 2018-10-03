@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Globals} from '../_global/global';
+import {User} from "../_model/user.model";
 @Injectable()
 export class UserService {
 
@@ -12,6 +13,10 @@ export class UserService {
 
   constructor(private http: HttpClient,
               private global: Globals) {
+  }
+
+  save(user: User) {
+    return this.http.post<any>(`${this.global.apiUrl}/users=`, JSON.stringify(user), this.httpOptions);
   }
 
   getUsersByPage(page: number, size: number, column: string, dir: string, searchTerm: string) {

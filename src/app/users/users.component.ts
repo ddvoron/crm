@@ -68,7 +68,6 @@ export class UsersComponent implements OnInit {
   }
 
   openUserForm(userId: string) {
-    console.log(userId);
     this.userId = userId;
     this.userEdit = true;
     setTimeout(() => {

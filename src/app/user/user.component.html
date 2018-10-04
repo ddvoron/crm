@@ -28,14 +28,14 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input required matInput [matDatepicker]="picker" placeholder="Дата рождения" [(ngModel)] = "user.birthDate" [ngModelOptions]="{standalone: true}" (click)="qwe()">
+          <input required matInput [matDatepicker]="picker" placeholder="Дата рождения" [(ngModel)] = "user.birthDate" [ngModelOptions]="{standalone: true}">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-     <!--   <mat-form-field>
+        <mat-form-field>
           <mat-select required="" placeholder="Отдел" [(ngModel)] = "selectedDepartments" [ngModelOptions]="{standalone: true}" multiple>
-            <mat-option *ngFor="let department of departments" value="department">
+            <mat-option *ngFor="let department of departments" [value]="department">
               {{department.name}}
             </mat-option>
           </mat-select>
@@ -43,11 +43,11 @@
 
         <mat-form-field>
           <mat-select required placeholder="Роли" [(ngModel)] = "selectedAuthorities" [ngModelOptions]="{standalone: true}" multiple>
-            <mat-option *ngFor="let authority of authorities">
+            <mat-option *ngFor="let authority of authorities"  [value]="authority">
               {{authority.roleName}}
             </mat-option>
           </mat-select>
-        </mat-form-field>-->
+        </mat-form-field>
 
         <button mat-button (click)="save();">Click me!</button>
       </form>

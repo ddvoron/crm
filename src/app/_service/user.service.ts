@@ -2,6 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Globals} from '../_global/global';
 import {User} from "../_model/user.model";
+import {Authority} from "../_model/authority.model";
+import {Department} from "../_model/department.model";
+import {forEach} from "@angular/router/src/utils/collection";
 @Injectable()
 export class UserService {
 
@@ -15,8 +18,10 @@ export class UserService {
               private global: Globals) {
   }
 
-  save(user: User) {
-    return this.http.post<any>(`${this.global.apiUrl}/users`, JSON.stringify(user), this.httpOptions);
+  save(user: User, authorities: Authority[], departments: Department[]) {
+    return this.http.post<any>(`${this.global.apiUrl}/users`,
+      '{' + '"person": ' + JSON.stringify(user) + ', "authorities": ' + JSON.stringify(authorities) + ', "departments": ' + JSON.stringify(departments) + '}',
+      this.httpOptions);
   }
 
   getUsersByPage(page: number, size: number, column: string, dir: string, searchTerm: string) {

@@ -108,10 +108,89 @@
       background-color: white;
       height: 100%;
 
+      .search {
+        transition: all 0.3s ease;
+        overflow: hidden;
+        float: left;
+        height: 100%;
+        margin-left: 10px;
+
+        mat-form-field {
+          margin-left: 20px;
+          height: 100%;
+          float: left;
+          width: 200px;
+        }
+
+        button {
+          animation-name: btn;
+          animation-timing-function: ease;
+          animation-iteration-count: 1;
+          animation-duration: 0.4s;
+          float: left;
+          width: 50px;
+          background-color: #52a5a8;
+          color: white;
+          font-family: 'Open Sans', sans-serif;
+          outline: none;
+          font-weight: bold;
+          margin-left: 10px;
+          margin-top: 10px;
+        }
+
+        .resetSearch {
+          background-color: #e2eaea;
+          color: #404040;
+
+        }
+
+        @keyframes btn {
+          0% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        .icon {
+          float: left;
+          width: 40px;
+          height: 100%;
+          cursor: pointer;
+
+          &:hover {
+            svg {
+              transform: scale(1.1);
+            }
+          }
+
+          svg {
+            transition: all 0.3s ease;
+            fill: #52a5a8;
+            margin-top: 10px;
+            height: 32px;
+            width: 32px;
+            margin-left: 14px;
+          }
+        }
+      }
+
+      .searchOn {
+        width: 420px;
+      }
+
+      .searchOff {
+        width: 50px;
+      }
+
       .icon {
         float: left;
         width: 40px;
-        height: 100px;
+        height: 100%;
         cursor: pointer;
 
         &:hover {

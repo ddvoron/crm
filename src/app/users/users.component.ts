@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
   userEdit = false;
   showForm = false;
   userId = '';
+  searchOn = false;
 
   private users: User[] = [];
 
@@ -28,6 +29,18 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
+  }
+
+  turnSearchOn() {
+    this.searchOn = true;
+  }
+
+  turnSearchOff() {
+    if (this.searchTerm !== '') {
+      this.searchTerm = '';
+      this.getUsers();
+    }
+    this.searchOn = false;
   }
 
   paginator(e: any) {

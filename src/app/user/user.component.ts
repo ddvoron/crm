@@ -62,7 +62,7 @@ export class UserComponent implements OnInit {
   }
 
   save() {
-    this.userService.save(this.user).subscribe(data => {
+    this.userService.save(this.user, this.selectedAuthorities, this.selectedDepartments).subscribe(data => {
 
     });
   }
@@ -71,26 +71,19 @@ export class UserComponent implements OnInit {
     this.close.emit(true);
   }
 
-  qwe() {
-/*    let x = this.datePipe.transform(this.user.birthDate, 'dd-MM-yyyy hh:mm:ss');
-    console.log(x);*/
-    console.log(this.user.birthDate);
-  }
-
   resetUser() {
     this.user.id = '';
     this.user.name = '';
     this.user.surname = '';
     this.user.patronymic = '';
     this.user.email = '';
+    this.user.password = '';
     this.user.phone = '';
     this.user.enabled = true;
     this.user.birthDate = null;
     this.user.created = null;
     this.user.updated = null;
     this.user.lastPasswordResetDate = null;
-  /*  this.user.departments = [];
-    this.user.authorities = [];*/
   }
 
 }

@@ -69,10 +69,10 @@
       </div>
     </div>
     <div class="header-wrapper">
-      <table class="table-header" id="table-h">
+      <table class="table-header">
         <tbody>
         <tr>
-          <td (click)="sort('surname')" class="col-sm-4">
+          <td (click)="sort('surname')" class="col-sm-3">
             ФИО
             <div>
               <div>
@@ -116,6 +116,17 @@
               </div>
             </div>
           </td>
+          <td (click)="sort('birthDate')" class="col-sm-2">
+            ДАТА РОЖДЕНИЯ
+            <div>
+              <div>
+                <i class="fa fa-caret-up" [ngClass]="{'active-caret': column === 'birthDate' && dir === 'asc'}"></i>
+              </div>
+              <div>
+                <i class="fa fa-caret-down" [ngClass]="{'active-caret': column === 'birthDate' && dir === 'desc'}"></i>
+              </div>
+            </div>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -123,10 +134,10 @@
     <div class="table-content-wrapper">
 
       <perfect-scrollbar>
-        <table class="table-body" id="table-c">
+        <table class="table-body">
           <tbody>
           <tr *ngFor="let user of users, let i = index" (dblclick)="openUserForm(user.id);">
-            <td class="col-sm-4">
+            <td class="col-sm-4 mat-ripple">
               {{user.surname + ' ' + user.name}}
               <br>
               {{user.patronymic}}
@@ -135,10 +146,14 @@
               {{user.email}}
             </td>
             <td class="col-sm-2">
-              {{user.enabled}}
+              <span><mat-icon *ngIf="user.enabled" style="color: #52a5a8;">check_circle_outline</mat-icon>
+              <mat-icon *ngIf="!user.enabled" style="color: #818181">highlight_off</mat-icon></span>
             </td>
             <td class="col-sm-3">
               {{user.phone}}
+            </td>
+            <td class="col-sm-2">
+              {{user.birthDate | date: 'dd/MM/yyyy'}}
             </td>
           </tr>
           </tbody>

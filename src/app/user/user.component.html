@@ -33,7 +33,7 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <mat-form-field>
+     <!--   <mat-form-field>
           <mat-select required="" placeholder="Отдел" [(ngModel)] = "selectedDepartments" [ngModelOptions]="{standalone: true}" multiple>
             <mat-option *ngFor="let department of departments" value="department">
               {{department.name}}
@@ -47,7 +47,9 @@
               {{authority.roleName}}
             </mat-option>
           </mat-select>
-        </mat-form-field>
+        </mat-form-field>-->
+
+        <button mat-button (click)="save();">Click me!</button>
       </form>
     </perfect-scrollbar>
   </div>

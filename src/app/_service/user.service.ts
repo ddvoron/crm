@@ -16,7 +16,7 @@ export class UserService {
   }
 
   save(user: User) {
-    return this.http.post<any>(`${this.global.apiUrl}/users=`, JSON.stringify(user), this.httpOptions);
+    return this.http.post<any>(`${this.global.apiUrl}/users`, JSON.stringify(user), this.httpOptions);
   }
 
   getUsersByPage(page: number, size: number, column: string, dir: string, searchTerm: string) {

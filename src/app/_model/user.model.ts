@@ -12,8 +12,8 @@ export class User {
   public enabled: boolean;
   public birthDate: Date;
   public lastPasswordResetDate: Date;
-  public departments: Department[];
-  public authorities: Authority[];
+/*  public departments: Department[];
+  public authorities: Authority[];*/
   public created: Date;
   public updated: Date;
 

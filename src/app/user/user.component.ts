@@ -57,6 +57,13 @@ export class UserComponent implements OnInit {
   getUser() {
     this.userService.getUserById(this.userId).subscribe(data => {
       this.user = data;
+      this.user.birthDate = new Date(data.birthDate);
+    });
+  }
+
+  save() {
+    this.userService.save(this.user).subscribe(data => {
+
     });
   }
 
@@ -82,8 +89,8 @@ export class UserComponent implements OnInit {
     this.user.created = null;
     this.user.updated = null;
     this.user.lastPasswordResetDate = null;
-    this.user.departments = [];
-    this.user.authorities = [];
+  /*  this.user.departments = [];
+    this.user.authorities = [];*/
   }
 
 }

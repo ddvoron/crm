@@ -215,12 +215,13 @@
           transition: all 0.1s ease;
           padding: 16px;
           color: #404040;
-          text-decoration: underline;
+
           position: relative;
 
           &:hover {
             cursor: pointer;
             background-color: #dae2e2;
+            text-decoration: underline;
             div {
               .fa {
               }
@@ -270,6 +271,7 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     width: 100%;
+    user-select: none;
 
     th, td {
       width: (100% / 6);
@@ -360,11 +362,19 @@
         td {
           transition: all 0.1s ease;
           padding: 16px;
-          color: #404040;
+          color: #636363;
           font-weight: 400;
+
+          span {
+
+            mat-icon {
+              padding-top: 4px;
+            }
+          }
         }
       }
     }
   }
 }
+
 

@@ -5,8 +5,6 @@ import {Authority} from "../_model/authority.model";
 import {AuthorityService} from "../_service/authority.service";
 import {DepartmentService} from "../_service/department.service";
 import {UserService} from "../_service/user.service";
-import {DatePipe} from "@angular/common";
-import {DateFormatter} from "@angular/common/src/pipes/deprecated/intl";
 
 @Component({
   selector: 'app-user',
@@ -28,8 +26,7 @@ export class UserComponent implements OnInit {
 
   constructor(private authorityService: AuthorityService,
               private departmentService: DepartmentService,
-              private userService: UserService,
-              private datePipe: DatePipe) {
+              private userService: UserService) {
     this.resetUser();
   }
 
@@ -58,8 +55,20 @@ export class UserComponent implements OnInit {
     this.userService.getUserById(this.userId).subscribe(data => {
       this.user = data;
       this.user.birthDate = new Date(data.birthDate);
+      this.selectedAuthorities = data.authorities;
+      this.selectedDepartments = data.departments;
+      console.log(this.selectedAuthorities);
     });
   }
+
+  compareFn(a1: any, a2: any): boolean {
+    if (a1 && a2) {
+      return a1.id === a2.id;
+    } else {
+      return a1 === a2;
+    }
+  }
+
 
   save() {
     this.userService.save(this.user, this.selectedAuthorities, this.selectedDepartments).subscribe(data => {
@@ -85,5 +94,4 @@ export class UserComponent implements OnInit {
     this.user.updated = null;
     this.user.lastPasswordResetDate = null;
   }
-
 }

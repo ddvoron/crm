@@ -236,6 +236,7 @@
           color: #404040;
           text-decoration: underline;
           position: relative;
+          user-select: none;
 
           &:hover {
             cursor: pointer;
@@ -294,7 +295,7 @@
           transition: all 0.1s ease;
           padding: 16px;
           color: #404040;
-
+          user-select: none;
           position: relative;
 
           &:hover {

@@ -34,7 +34,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select required="" placeholder="Отдел" [(ngModel)] = "selectedDepartments" [ngModelOptions]="{standalone: true}" multiple>
+          <mat-select required="" placeholder="Отдел" [(ngModel)] = "selectedDepartments" [ngModelOptions]="{standalone: true}" multiple [compareWith]="compareFn">
             <mat-option *ngFor="let department of departments" [value]="department">
               {{department.name}}
             </mat-option>
@@ -42,15 +42,17 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select required placeholder="Роли" [(ngModel)] = "selectedAuthorities" [ngModelOptions]="{standalone: true}" multiple>
+          <mat-select required placeholder="Роли" [(ngModel)] = "selectedAuthorities" [ngModelOptions]="{standalone: true}" multiple [compareWith]="compareFn">
             <mat-option *ngFor="let authority of authorities"  [value]="authority">
               {{authority.roleName}}
             </mat-option>
           </mat-select>
         </mat-form-field>
-
-        <button mat-button (click)="save();">Click me!</button>
       </form>
     </perfect-scrollbar>
+  </div>
+  <div class="footer">
+    <button mat-button (click)="save();">Сохранить</button>
+    <button mat-button (click)="closeForm();">Назад к списку</button>
   </div>
 </div>

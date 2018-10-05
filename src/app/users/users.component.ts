@@ -94,12 +94,4 @@ export class UsersComponent implements OnInit {
     this.userEdit = false;
     this.userId = '';
   }
-
-  onResize(e?: any) {
-    for (let i = 0; i < this.elRef.nativeElement.querySelector('#table-c').getElementsByTagName('tr')[0].getElementsByTagName('td').length; i++) {
-      this.renderer.setStyle(this.elRef.nativeElement.querySelector('#table-h').getElementsByTagName('th')[i],
-        'width', this.elRef.nativeElement.querySelector('#table-c').getElementsByTagName('tr')[0].getElementsByTagName('td')[i].offsetWidth + 'px');
-    }
-  }
-
 }

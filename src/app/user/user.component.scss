@@ -76,5 +76,6 @@ button {
   font-family: 'Open Sans', sans-serif;
   margin-top: 11px;
   margin-left: 20px;
-
+  user-select: none;
+  outline: none;
 }

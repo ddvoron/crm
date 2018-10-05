@@ -57,7 +57,6 @@ export class UserComponent implements OnInit {
       this.user.birthDate = new Date(data.birthDate);
       this.selectedAuthorities = data.authorities;
       this.selectedDepartments = data.departments;
-      console.log(this.selectedAuthorities);
     });
   }
 
